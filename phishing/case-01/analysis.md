@@ -1,7 +1,154 @@
-This lab was completed by me on the TryHackMe platform. The lab included a series of questions that needed to be answered. In the first screenshot, the task itself is shown. In the second screenshot, I present the questions that were asked and then demonstrate how I found the answers to those questions.
+🛡️ Phishing Email Analysis Report
 
+Platform: TryHackMe
+Case: Phishing Case 01
+Analyst: Alina
+Role Target: SOC Analyst
+
+1. Executive Summary
+
+The objective of this lab was to analyze a suspicious email and determine whether it represents a phishing attempt. During the investigation, email headers, sender information, IP addresses, authentication records (SPF/DMARC), and the attached file were analyzed using industry-standard tools.
+
+Based on the findings, the email exhibits multiple indicators of phishing activity, including suspicious sender information, abnormal email authentication results, and a malicious file attachment confirmed by VirusTotal.
 
 <img width="869" height="528" alt="image" src="https://github.com/user-attachments/assets/f4809813-d1e8-46c6-94f5-0dfe42c2d533" />
+
+2. Incident Description
+
+A suspicious email was provided for analysis as part of a TryHackMe phishing investigation lab. The task required identifying key attributes of the email, verifying its authenticity, and assessing the potential threat posed by the attached file.
+
+The investigation focused on:
+
+Email header analysis
+
+Source IP attribution
+
+SPF and DMARC record verification
+
+File hash generation and malware analysis
+
+3. Tools and Environment
+
+The following tools and platforms were used during the investigation:
+
+Thunderbird – email header and content analysis
+
+Linux Terminal – file hash generation
+
+WHOIS – IP ownership lookup
+
+MXToolbox – SPF and DMARC record analysis
+
+VirusTotal – malware and reputation analysis
+
+4. Email Header Analysis
+
+The email was opened on the virtual machine using Thunderbird.
+From the email headers and body, the following information was extracted:
+
+Transfer Reference Number
+
+Sender email address
+
+Reply-To email address
+
+Originating IP address
+
+This information was used to assess whether the email originated from a legitimate source or was spoofed.
+
+5. IP Address Attribution
+
+The originating IP address identified in the email header was submitted to whois.com for further investigation.
+
+The WHOIS lookup revealed ownership and registration details of the IP address. The results indicated that the IP address belongs to a hosting provider rather than a legitimate corporate mail server, which is commonly associated with phishing or spam campaigns.
+
+Conclusion:
+The IP origin increases the likelihood that the email is malicious.
+
+6. SPF and DMARC Analysis
+
+To evaluate email authentication mechanisms, the Return-Path domain was analyzed using MXToolbox.
+
+The following records were checked:
+
+SPF (Sender Policy Framework)
+
+DMARC (Domain-based Message Authentication, Reporting & Conformance)
+
+The results showed misconfigured or weak authentication records, allowing email spoofing.
+
+Conclusion:
+The absence or misconfiguration of SPF/DMARC records is a strong indicator of phishing activity.
+
+7. Attachment Analysis
+
+The email contained an attachment, which was saved locally for analysis.
+
+7.1 Hash Generation
+
+Using the terminal, a cryptographic hash of the file was generated to uniquely identify the attachment.
+
+7.2 VirusTotal Analysis
+
+The generated hash was submitted to VirusTotal, where the file was analyzed by multiple antivirus engines.
+
+VirusTotal results confirmed that the file is malicious, with detections reported by several security vendors.
+
+Conclusion:
+The attachment poses a direct security risk and confirms the malicious intent of the email.
+
+8. Indicators of Compromise (IOCs)
+
+The following IOCs were identified during the investigation:
+
+Sender email address
+
+Reply-To email address
+
+Originating IP address
+
+Return-Path domain
+
+Malicious file hash
+
+These IOCs could be used to enhance detection and prevention mechanisms in a SOC environment.
+
+9. Final Verdict
+
+Based on the analysis of email headers, IP attribution, authentication records, and attachment behavior, this email is confirmed to be a phishing email with a malicious payload.
+
+10. Recommended Response Actions
+
+In a real SOC environment, the following actions are recommended:
+
+Block the sender IP and associated domains
+
+Add the file hash to endpoint protection blocklists
+
+Update email filtering rules
+
+Notify users about the phishing campaign
+
+Monitor for additional emails using the same IOCs
+
+11. Key Takeaways
+
+This lab demonstrates the complete phishing analysis workflow used by SOC analysts, including:
+
+Email header investigation
+
+Threat intelligence enrichment
+
+Authentication record verification
+
+Malware analysis using hashes
+
+IOC identification and incident response thinking
+
+📌 This report was created as part of hands-on SOC training on the TryHackMe platform and reflects real-world phishing investigation techniques.
+
+
+
 
 <img width="885" height="693" alt="image" src="https://github.com/user-attachments/assets/0cbfd1b4-1e3a-4422-be9e-fd43362d47c0" />
 

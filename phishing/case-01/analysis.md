@@ -11,7 +11,6 @@ The objective of this lab was to analyze a suspicious email and determine whethe
 
 Based on the findings, the email exhibits multiple indicators of phishing activity, including suspicious sender information, abnormal email authentication results, and a malicious file attachment confirmed by VirusTotal.
 
-<img width="869" height="528" alt="image" src="https://github.com/user-attachments/assets/f4809813-d1e8-46c6-94f5-0dfe42c2d533" />
 
 2. Incident Description
 
@@ -26,6 +25,8 @@ Source IP attribution
 SPF and DMARC record verification
 
 File hash generation and malware analysis
+
+<img width="869" height="528" alt="image" src="https://github.com/user-attachments/assets/f4809813-d1e8-46c6-94f5-0dfe42c2d533" />
 
 3. Tools and Environment
 

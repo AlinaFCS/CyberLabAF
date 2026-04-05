@@ -10,6 +10,7 @@ This repository documents the investigation of a high-severity security alert tr
 
 
 
+
 🚨 Alert Summary
 Field	Value
 Event ID	1026
@@ -18,6 +19,7 @@ Severity	High
 Incident Type	Process
 Host	win-3450
 Detection Time	Feb 4th, 2026
+
 🔍 Alert Details
 Data Source: Sysmon
 Event Code: 1 (Process Creation)
@@ -35,6 +37,7 @@ The queried domain contains a long encoded string, indicating possible data enco
 Execution originates from a suspicious directory:
 downloads\exfiltration\
 Behavior strongly aligns with DNS tunneling or data exfiltration techniques.
+
 🧠 Analysis
 
 This alert was classified as a True Positive based on the following:
@@ -43,6 +46,7 @@ Use of PowerShell to spawn nslookup, a known technique for covert operations.
 Presence of encoded payload in DNS query, suggesting data exfiltration.
 Suspicious working directory explicitly named "exfiltration".
 External domain communication with non-standard query patterns.
+
 📊 MITRE ATT&CK Mapping
 Tactic	Technique
 Exfiltration	T1048 – Exfiltration Over Alternative Protocol
